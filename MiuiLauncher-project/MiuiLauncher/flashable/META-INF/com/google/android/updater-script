@@ -1,0 +1,7 @@
+ui_print("Installing MIUI Home launcher...");
+mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system");
+delete("/system/app/MiuiHome.apk");
+package_extract_file("system/app/MiuiHome.apk", "/system/app/MiuiHome.apk");
+set_perm(0, 0, 0644, "/system/app/MiuiHome.apk");
+unmount("/system");
+ui_print("Done. Reboot, press Home and choose MIUI Home -> Always.");
